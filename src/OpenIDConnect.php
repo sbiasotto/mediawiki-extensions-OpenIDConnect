@@ -161,7 +161,8 @@ class OpenIDConnect extends PluggableAuth {
 			if ( $oidc->authenticate() ) {
 
 				$realname = $oidc->requestUserInfo( 'name' );
-				$email = $oidc->requestUserInfo( 'email' );
+			//	$email = $oidc->requestUserInfo( 'email' );
+				$email = $oidc->requestUserInfo( 'upn' );
 				$this->subject = $oidc->requestUserInfo( 'sub' );
 				$this->issuer = $oidc->getProviderURL();
 				wfDebugLog( 'OpenID Connect', 'Real name: ' . $realname .
